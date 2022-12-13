@@ -4,7 +4,7 @@ var router = express.Router();
 var adminHelper=require('../helpers/admin-helper');
 const userHelper = require('../helpers/user-helper');
 var UserHelper=require('../helpers/user-helper')
-
+var db=require('../config/connection');
 
 //twilio
 const accountSid =process.env.accountSid
@@ -23,6 +23,9 @@ const verifyLogin=(req,res,next)=>{
 }
 
 router.get('/',async(req,res)=>{
+  if(db.get()===null){
+    res.render('user/something-went-wrong')
+  }else{
   let user_login=req.session.user;
   let cartCount=null
   if(req.session.user){
@@ -33,6 +36,8 @@ router.get('/',async(req,res)=>{
   adminHelper.getRandomFoodItems().then((items)=>{
     res.render('user/home',{user:true,user_login,cartCount,items,allCategory,banners})
   })
+  }
+  
   // res.render('user/home',{user:true,user_login,cartCount})
 })
 
