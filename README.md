@@ -43,8 +43,8 @@ using Hbs(Handlebars), Node.js, Express.js and MongoDB.
 
 
 # Demo
-   *  user:   https://adoncanteen.herokuapp.com/
-   *  admin:  https://adoncanteen.herokuapp.com/admin
+   *  user:   https://adoncanteen.onrender.com
+   *  admin:  https://adoncanteen.onrender.com/admin
    
 # Future Updations :
  * Google Authentication
